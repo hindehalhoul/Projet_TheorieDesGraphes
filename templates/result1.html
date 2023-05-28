@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Graph Theory Algorithms - Dijkstra Result</title>
+		<style>
+			.home-button {
+				display: block;
+				width: 200px;
+				margin: 20px auto;
+				padding: 10px;
+				background-color: #fa0a0a;
+				color: white;
+				text-decoration: none;
+				text-align: center;
+				border-radius: 5px;
+				font-size:large;
+			}
+			h1{
+				color: #1dbf73;
+				text-align: center;
+			}
+			h2{
+				color: rgb(115, 114, 114);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Resultat de l'algorithme Dijkstra </h1>
+		<h2>Distances:</h2>
+		{% if distances %}
+			<ul>
+				{% for distance in distances %}
+					<li>Distance from start node to node {{ loop.index0 }}: {{ distance }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>Pas de distances calculée</p>
+		{% endif %}
+
+		<h2>Predecesseurs:</h2>
+		{% if predecessors %}
+			<ul>
+				{% for predecessor in predecessors %}
+					<li>Predecessor of node {{ loop.index0 }}: {{ predecessor }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>No predecessors calculated.</p>
+		{% endif %}
+
+        <h2>Graphe de la Matrice D'adjacence :</h2>
+<div>
+    <img src="{{ url_for('static', filename='img/adjacency_graph.png') }}" alt="Graph from Adjacency Matrix" />
+</div>
+
+<h2>Graphe des Predecesseurs:</h2>
+<div>
+    <img src="{{ url_for('static', filename='img/predecessor_graph.png') }}" alt="Predecessor Graph" />
+</div>
+<a class="home-button" href="/">Retour à la page d'accueil</a>
+	</body>
+</html>

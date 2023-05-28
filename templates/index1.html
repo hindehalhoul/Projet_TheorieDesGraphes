@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Graph Algorithms</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+		}
+		  
+		h1 {
+			text-align: center;
+			margin-top: 30px;
+			color: #1dbf73;
+		}
+		  
+		hr {
+			border: none;
+			border-top: 1px solid #ccc;
+			margin: 20px auto;
+		}
+		  
+		.container {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		  
+		.container form {
+			margin-bottom: 20px;
+		}
+		  
+		.container label {
+			font-weight: bold;
+		}
+		  
+		.container input[type="number"],
+		.container select {
+			padding: 10px;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-bottom: 10px;
+		}
+		  
+		.container table {
+			width: 100%;
+			margin-bottom: 10px;
+			border-collapse: collapse;
+		}
+		  
+		.container th,
+		.container td {
+			padding: 5px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		  
+		.container button[type="submit"] {
+			padding: 15px 30px;
+			background-color: #1dbf73;
+			color: #555;
+			font-weight: bold;
+			font-size: 25px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			width: 100%;
+		}
+		  
+		.container button[type="submit"]:hover {
+			background-color: #1dbf73;
+		}
+		.home-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fa0a0a;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size:large;
+        }
+		
+	</style>
+</head>
+<body>
+	<h1> Dijkstra Algorithme</h1>
+	<hr />
+	<div class="container">
+		<form method="POST">
+			<div class="custom-div">
+				<label for="num_nodes">Nombre de noeuds:</label>
+				<input type="number" name="num_nodes" id="num_nodes" required />
+			</div>
+			
+			<table id="adj_matrix_table"></table>
+			<script>
+				$(document).ready(function() {
+					$("#num_nodes").on("input", function () {
+						const numNodes = $(this).val();
+						const adjMatrixTable = $("#adj_matrix_table");
+						adjMatrixTable.empty();
+
+						const headerRow = $("<tr>");
+						headerRow.append($("<th>"));
+						for (let i = 0; i < numNodes; i++) {
+							const th = $("<th>").text(i);
+							headerRow.append(th);
+						}
+						adjMatrixTable.append(headerRow);
+
+						for (let i = 0; i < numNodes; i++) {
+							const row = $("<tr>");
+							const th = $("<th>").text(i);
+							row.append(th);
+							for (let j = 0; j < numNodes; j++) {
+								const td = $("<td>");
+								const input = $("<input>").attr({
+									type: "number",
+									name: `adj_matrix_${i}_${j}`,
+									required: true,
+								});
+								td.append(input);
+								row.append(td);
+							}
+							adjMatrixTable.append(row);
+						}
+
+						const startNodeSelect = $("#start_node");
+						startNodeSelect.empty();
+						for (let i = 0; i < numNodes; i++) {
+							const option = $("<option>").attr({
+								value: i,
+							}).text(i);
+							startNodeSelect.append(option);
+						}
+					});
+				});
+			</script>
+			<div>
+				<label for="start_node">Noeud de départ:</label>
+				<select name="start_node" id="start_node" required>
+					<!-- Options will be dynamically generated -->
+				</select>
+			</div>
+			<button type="submit">Executer l'algorithme</button>
+			<a class="home-button" href="/">Retour à la page d'accueil</a>
+		</form>
+	</div>
+</body>
+</html>

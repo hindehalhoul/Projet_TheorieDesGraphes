@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dijkstra algorithme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        h2 {
+			text-align: center;
+			margin-top: 30px;
+			color: #1dbf73;
+		}
+        .Link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1dbf73;
+            color: rgb(254, 252, 252);
+            font-size: larger;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .text {
+            margin-right: 20px;
+        }
+        .image {
+            max-width: 400px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        .nav-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: none;
+            color: rgb(10, 10, 10);
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .nav-link:first-child {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h2>Theorie Des Graphes</h2>
+        </div>
+        <div class="menu">
+            <a class="nav-link" href="/">Page d'accueil</a>
+            <a class="nav-link" href="/BFS">BFS algorithme</a>
+            <a class="nav-link" href="/DFS">DFS algorithme</a>
+            <a class="nav-link" href="/war">Warshall algorithme</a>
+            <a class="nav-link" href="/dijkstra">Dijkstra algorithme</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="text">
+            <h2>Dijkstra algorithme</h2>
+            <p>    En théorie des graphes, <strong>L'algorithme de Dijkstra</strong> sert à résoudre le problème du plus court chemin. Il permet, par exemple, de déterminer un plus court chemin pour se rendre d'une ville à une autre connaissant le réseau routier d'une région. Plus précisément, il calcule des plus courts chemins à partir d'une source vers tous les autres sommets dans un graphe orienté pondéré par des réels positifs. On peut aussi l'utiliser pour calculer un plus court chemin entre un sommet de départ et un sommet d'arrivée.  
+            </p>
+            <a class="Link" href="/dijkstra">Testons cet algorithme</a>
+        </div>
+        <div class="image">
+            <img src="https://perso.telecom-paristech.fr/hudry/coursJava/exercices/corriges/dijkstra/dijkstra.jpg" alt="Image de bienvenue" width="400" height="300" />
+        </div>
+    </div>
+</body>
+</html>

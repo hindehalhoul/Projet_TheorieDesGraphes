@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Graph Algorithms</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+		}
+		  
+		h1 {
+			text-align: center;
+			margin-top: 30px;
+			color: #1dbf73;
+		}
+		  
+		hr {
+			border: none;
+			border-top: 1px solid #ccc;
+			margin: 20px auto;
+		}
+		  
+		.container {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		
+		.container .form-group label {
+			font-weight: bold;
+		}
+		
+		.container .form-group input[type="number"],
+		.container .form-group select {
+			padding: 10px;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-bottom: 10px;
+		}
+		
+		.container table {
+			width: 100%;
+			margin-bottom: 10px;
+			border-collapse: collapse;
+		}
+		
+		.container th,
+		.container td {
+			padding: 5px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		
+		.container button[type="submit"] {
+			padding: 15px 30px;
+			background-color: #1dbf73;
+			color: #555;
+			font-weight: bold;
+			font-size: 25px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			width: 100%;
+		}
+		
+		.container button[type="submit"]:hover {
+			background-color: #1dbf73;
+		}
+		.home-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fa0a0a;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size:large;
+        }
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="text-center"> Algorithme de theorie des graphes</h1>
+			<hr />
+			<div class="col-md-8 col-md-offset-2">
+				<form method="POST">
+					<div class="form-group">
+						<label for="num_nodes">Nombre de noeuds:</label>
+						<input type="number" class="form-control" name="num_nodes" id="num_nodes" required />
+					</div>
+					<table class="table table-bordered" id="adj_matrix_table"></table>
+					<script>
+						$("#num_nodes").on("input", function () {
+							const numNodes = $(this).val();
+							const adjMatrixTable = $("#adj_matrix_table");
+							adjMatrixTable.empty();
+
+							const headerRow = $("<tr>");
+							headerRow.append($("<th>"));
+							for (let i = 0; i < numNodes; i++) {
+								const th = $("<th>").text(i);
+								headerRow.append(th);
+							}
+							adjMatrixTable.append(headerRow);
+
+							for (let i = 0; i < numNodes; i++) {
+								const row = $("<tr>");
+								const th = $("<th>").text(i);
+								row.append(th);
+								for (let j = 0; j < numNodes; j++) {
+									const td = $("<td>");
+									const input = $("<input>").attr({
+										type: "number",
+										name: `adj_matrix_${i}_${j}`,
+										required: true,
+									});
+									td.append(input);
+									row.append(td);
+								}
+								adjMatrixTable.append(row);
+							}
+						});
+					</script>
+					<button type="submit" class="btn btn-primary">Executer l'algorithme</button>
+					<a class="home-button" href="/">Retour à la page d'accueil</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        .logo {
+            margin-left: 20px;
+        }
+        .menu {
+            margin-right: 20px;
+        }
+        .welcome-message {
+            
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            margin-top: 30px;
+        }
+        .image {
+            max-width: 4000px;
+            margin-right: 200px;
+            width:400px;
+             height:300px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+           
+        }
+        .button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #1dbf73;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: larger;
+
+        }
+        .nav-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: none;
+            color: rgb(10, 10, 10);
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .nav-link:first-child {
+            margin-left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h2>Theorie Des Graphes</h2>
+        </div>
+        <div class="menu">
+            <a class="nav-link" href="/">Page d'accueil</a>
+            <a class="nav-link" href="/BFS">BFS algorithme</a>
+            <a class="nav-link" href="/DFS">DFS algorithme</a>
+            <a class="nav-link" href="/war">Warshall algorithme</a>
+            <a class="nav-link" href="/dijkstra">Dijkstra algorithme</a>
+        </div>
+    </div>
+    <div class="welcome-message">
+        <p>Bienvenue dans ma page, Voici les algorithmes que je vous propose :</p>
+    </div>
+    <div class="content">
+        <div class="image">
+            <img src="https://devi.recherche.enac.fr/wp-content/uploads/2016/09/reseaux-graphes2-300x275.png" alt="Graphes">
+        </div>
+        <div class="buttons">
+            <a class="button" href="/bfs_page">BFS algorithme</a>
+            <a class="button" href="/dfs_page">DFS algorithme</a>
+            <a class="button" href="/warshall_page">Warshall algorithme</a>
+            <a class="button" href="/dijkstra_page">Dijkstra algorithme</a>
+        </div>
+    </div>
+</body>
+</html>
